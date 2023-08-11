@@ -4,6 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>DBotHub.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <AssemblyName>DBotHub.$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
 
 </Project>
