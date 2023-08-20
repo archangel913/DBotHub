@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,5 +7,15 @@
     <RootNamespace>DBotHub.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <AssemblyName>DBotHub.$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="IBotConnecter" />
+    <None Remove="NewFile1.txt" />
+    <None Remove="PluginSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Plugins\" />
+  </ItemGroup>
 
 </Project>
