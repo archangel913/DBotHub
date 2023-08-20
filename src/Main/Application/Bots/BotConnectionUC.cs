@@ -9,7 +9,7 @@ public class BotConnectionUC
 
     private IBotRepository BotRepository { get; }
 
-    private Bot? Bot { get; }
+    private Bot? Bot { get; set; }
 
     public BotConnectionUC(IServiceProvider services)
     {
@@ -17,10 +17,10 @@ public class BotConnectionUC
         this.BotConnector = services.GetRequiredService<IBotConnector>();
     }
 
-    public async Task<bool> ConnectAsync(string id, string name)
+    public async Task<bool> ConnectAsync(BotId id, string name)
     {
-        
-        // this.Bot = 　ファクトリーに任せる
+        var launchConfiguration = this.BotRepository.GetLaunchConfiguration(id);
+        this.Bot = BotFactory.Generate(launchConfiguration, id, name, this.BotConnector);
         return await this.Bot.ConnectAsync();
     }
 
